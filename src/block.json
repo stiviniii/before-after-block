@@ -1,0 +1,129 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ba-block/compare",
+  "version": "1.0.0",
+  "title": "Before After Image Compare",
+  "category": "media",
+  "icon": "image-flip-horizontal",
+  "description": "Compare two images with an interactive slider.",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "attributes": {
+    "beforeImage": {
+      "type": "object",
+      "default": null
+    },
+    "afterImage": {
+      "type": "object",
+      "default": null
+    },
+    "beforeLabel": {
+      "type": "string",
+      "default": "Before"
+    },
+    "afterLabel": {
+      "type": "string",
+      "default": "After"
+    },
+    "showLabels": {
+      "type": "boolean",
+      "default": true
+    },
+    "beforeLabelPosition": {
+      "type": "string",
+      "default": "top-left"
+    },
+    "afterLabelPosition": {
+      "type": "string",
+      "default": "top-right"
+    },
+    "dividerColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "handleColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "arrowColor": {
+      "type": "string",
+      "default": "#000000"
+    },
+    "handleSize": {
+      "type": "number",
+      "default": 40
+    },
+    "dividerWidth": {
+      "type": "number",
+      "default": 2
+    },
+    "heightDesktop": {
+      "type": "string",
+      "default": "600px"
+    },
+    "heightTablet": {
+      "type": "string",
+      "default": "500px"
+    },
+    "heightMobile": {
+      "type": "string",
+      "default": "400px"
+    },
+    "defaultPosition": {
+      "type": "number",
+      "default": 50
+    },
+    "imageFit": {
+      "type": "string",
+      "default": "cover"
+    },
+    "labelBgColor": {
+      "type": "string",
+      "default": "rgba(0,0,0,0.6)"
+    },
+    "labelTextColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "labelFontSize": {
+      "type": "number",
+      "default": 14
+    },
+    "labelPadding": {
+      "type": "number",
+      "default": 10
+    },
+    "labelBorderRadius": {
+      "type": "number",
+      "default": 4
+    },
+    "showArrow": {
+      "type": "boolean",
+      "default": true
+    },
+    "borderRadius": {
+      "type": "number",
+      "default": 0
+    },
+    "shadow": {
+      "type": "boolean",
+      "default": false
+    },
+    "animate": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "textdomain": "before-after-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

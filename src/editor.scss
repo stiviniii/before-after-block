@@ -1,0 +1,41 @@
+/**
+ * Editor-specific styles for the Before After Block.
+ */
+
+.wp-block-ba-block-compare {
+	&.ba-compare {
+		margin-bottom: 20px;
+		// Ensure it takes full width in the editor
+		width: 100%;
+		max-width: none;
+	}
+
+	// Make sure images fill the container accurately in editor
+	.ba-image img {
+		width: 100% !important;
+		height: 100% !important;
+		object-fit: var(--ba-img-fit, cover) !important;
+	}
+
+	// Placeholder styling refinement
+	.components-placeholder {
+		padding: 2em;
+		text-align: center;
+		color: #555d66;
+
+		.components-placeholder__label {
+			font-weight: 600;
+			margin-bottom: 0.5em;
+		}
+	}
+}
+
+// Ensure toolbar buttons look right
+.components-toolbar-group {
+	.components-button {
+		&.is-pressed {
+			background-color: #1e1e1e;
+			color: #fff;
+		}
+	}
+}
