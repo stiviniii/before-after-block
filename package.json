@@ -1,6 +1,6 @@
 {
   "name": "before-after-block",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A high-performance before and after image comparison block for WordPress Gutenberg.",
   "author": "Steven Ayo (https://steveayo.com)",
   "license": "GPL-2.0-or-later",

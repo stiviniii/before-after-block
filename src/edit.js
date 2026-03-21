@@ -18,7 +18,6 @@ import {
 	ToolbarGroup,
 	ToolbarButton,
 } from '@wordpress/components';
-import { useEffect, useRef, useState } from '@wordpress/element';
 
 export default function Edit({ attributes, setAttributes }) {
 	const {
@@ -49,8 +48,6 @@ export default function Edit({ attributes, setAttributes }) {
 		shadow,
 		animate,
 	} = attributes;
-
-	const containerRef = useRef();
 
 	const style = {
 		'--ba-divider-color': dividerColor,
@@ -155,6 +152,44 @@ export default function Edit({ attributes, setAttributes }) {
 						]}
 						onChange={(val) => setAttributes({ imageFit: val })}
 					/>
+					<div className="ba-inspector-image-actions">
+						<label className="ba-label-heading">{__('Before Image', 'before-after-block')}</label>
+						<div className="ba-inspector-preview">
+							{beforeImage && <img src={beforeImage.url} alt="" />}
+							<div className="ba-action-buttons">
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={(media) => setAttributes({ beforeImage: { id: media.id, url: media.url, alt: media.alt } })}
+										allowedTypes={['image']}
+										value={beforeImage?.id}
+										render={({ open }) => (
+											<Button isSecondary isSmall onClick={open}>{__('Replace', 'before-after-block')}</Button>
+										)}
+									/>
+								</MediaUploadCheck>
+								<Button isDestructive isTertiary isSmall onClick={() => setAttributes({ beforeImage: null })}>{__('Remove', 'before-after-block')}</Button>
+							</div>
+						</div>
+					</div>
+					<div className="ba-inspector-image-actions">
+						<label className="ba-label-heading">{__('After Image', 'before-after-block')}</label>
+						<div className="ba-inspector-preview">
+							{afterImage && <img src={afterImage.url} alt="" />}
+							<div className="ba-action-buttons">
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={(media) => setAttributes({ afterImage: { id: media.id, url: media.url, alt: media.alt } })}
+										allowedTypes={['image']}
+										value={afterImage?.id}
+										render={({ open }) => (
+											<Button isSecondary isSmall onClick={open}>{__('Replace', 'before-after-block')}</Button>
+										)}
+									/>
+								</MediaUploadCheck>
+								<Button isDestructive isTertiary isSmall onClick={() => setAttributes({ afterImage: null })}>{__('Remove', 'before-after-block')}</Button>
+							</div>
+						</div>
+					</div>
 					<TextControl
 						label={__('Desktop Height', 'before-after-block')}
 						value={heightDesktop}
@@ -323,7 +358,7 @@ export default function Edit({ attributes, setAttributes }) {
 							allowedTypes={['image']}
 							value={beforeImage?.id}
 							render={({ open }) => (
-								<ToolbarButton icon="image-flip-horizontal" label={__('Edit Before Image', 'before-after-block')} onClick={open} />
+								<ToolbarButton icon="image-flip-horizontal" label={__('Replace Before Image', 'before-after-block')} onClick={open} />
 							)}
 						/>
 						<MediaUpload
@@ -331,14 +366,14 @@ export default function Edit({ attributes, setAttributes }) {
 							allowedTypes={['image']}
 							value={afterImage?.id}
 							render={({ open }) => (
-								<ToolbarButton icon="image-flip-vertical" label={__('Edit After Image', 'before-after-block')} onClick={open} />
+								<ToolbarButton icon="image-flip-vertical" label={__('Replace After Image', 'before-after-block')} onClick={open} />
 							)}
 						/>
 					</MediaUploadCheck>
 				</ToolbarGroup>
 			</BlockControls>
 
-			<div {...blockProps} ref={containerRef}>
+			<div {...blockProps}>
 				<div className="ba-image-container">
 					<div className="ba-image ba-after">
 						<img src={afterImage.url} alt={afterImage.alt} />

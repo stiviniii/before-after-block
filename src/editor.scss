@@ -1,16 +1,27 @@
 /**
  * Editor-specific styles for the Before After Block.
+ * Loaded only in the editor via `editorStyle` in block.json.
  */
 
 .wp-block-ba-block-compare {
 	&.ba-compare {
 		margin-bottom: 20px;
-		// Ensure it takes full width in the editor
 		width: 100%;
 		max-width: none;
+
+		// Disable the interactive col-resize cursor in the editor
+		cursor: default !important;
+
+		// Prevent children from intercepting block selection clicks
+		.ba-image-container,
+		.ba-divider,
+		.ba-handle,
+		.ba-label {
+			pointer-events: none !important;
+		}
 	}
 
-	// Make sure images fill the container accurately in editor
+	// Ensure images fill the container accurately in editor
 	.ba-image img {
 		width: 100% !important;
 		height: 100% !important;
